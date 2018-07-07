@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 class MenuItem extends StatelessWidget {
   final String title;
   final bool isSelected;
+  final Function onTap;
 
-  MenuItem({this.title = "", this.isSelected=false});
+  MenuItem({this.title = "", this.isSelected = false, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Color(0x44000000),
-      onTap: isSelected ?null :(){},
+      onTap: isSelected ? null : () {
+        onTap();
+      },
       child: Container(
         width: double.infinity,
         child: Padding(
